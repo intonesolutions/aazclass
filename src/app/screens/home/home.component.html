@@ -1,0 +1,9 @@
+<p>home works!</p>
+<div style="top: 20px; left: 0px;width: 400px;height: 700px;overflow-y: auto;" [innerHTML]="messages">
+</div>
+<div style="top: 700px; left: 0px;width: 300px;height: 80px;">
+    <textarea [(ngModel)]="inputmessage" style="width: 300px;"></textarea>
+</div>
+<div style="top: 780px;left: 300px; width: 100px;height: 20px;">
+    <button (click)="send()">SEND</button>
+</div>
