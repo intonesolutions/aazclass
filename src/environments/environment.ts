@@ -4,10 +4,9 @@
 
 export const environment = {
   production: false,
-  //apiUrl: window.location.hostname=='localhost'?'http://localhost:3000':window.location.protocol+'//'+window.location.hostname+(window.location.port?':'+window.location.port:''),
-  apiServiceUrl:window.location.hostname=='localhost'?'http://localhost:3102/api/':
-  window.location.hostname.indexOf('192.168.')==0? 'https://'+window.location.hostname+':3543/api/'
-  :window.location.protocol+'//'+window.location.hostname+(window.location.port?':3102':'')+'/api/',
+  apiServiceUrl:'https://classsrv.aaz.life/api/' //window.location.hostname=='localhost'?'http://localhost:3102/api/':
+    //window.location.hostname.indexOf('192.168.')==0? 'https://'+window.location.hostname+':3543/api/'
+    //:window.location.protocol+'//'+window.location.hostname+(window.location.port?':3102':'')+'/api/',
 }; 
 
 /*

@@ -131,6 +131,12 @@ export class apiClient {
     }
     return { target, changes };
   }
+
+  async initAI(ainame:string, studentname: string,language:string, instructions:string){
+    let r=await this.callAPIMethodPOST('chat.start', null, {name:ainame,username:studentname,language:language,instructions:instructions});
+    return r;    
+  }
+  
 }
 
 class WSHandler{

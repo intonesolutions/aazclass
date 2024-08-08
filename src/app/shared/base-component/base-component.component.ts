@@ -4,6 +4,7 @@ import { apiClient } from '../../service/apiClient';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MsalBroadcastService, MsalService } from '@azure/msal-angular';
 import { DomSanitizer } from '@angular/platform-browser';
+import {HomeComponent} from '../../screens/home/home.component';
 declare const Math: any;
 declare const moment: any;
 declare const isNaN: any;
@@ -25,6 +26,8 @@ declare const isNaN: any;
   ]
 })
 export class BaseComponentComponent implements OnInit {
+
+  public session:string='';
 
   public Math: any = Math;
   public moment: any = moment;
@@ -76,6 +79,15 @@ export class BaseComponentComponent implements OnInit {
       this.authuser=JSON.parse(s);
     else
       this.authuser={};
+
+    let comp:HomeComponent=this as unknown as HomeComponent;
+    let r=await this.apic.initAI(comp.AI_name,comp.my_name,comp.language,comp.instructions);
+    comp.session=r.data;
+    comp.messages=r.message;
+  }
+  public async chatAI(input:string){
+    let m=await this.apic.callAPIMethodPOST('chat.chat', null, {session:this.session,message:input});
+    return m;
   }
   public saveUser()
   {
